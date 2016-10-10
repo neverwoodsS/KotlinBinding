@@ -7,6 +7,9 @@ import com.zll.hellokotlin.binding.bind
 import com.zll.hellokotlin.binding.bindBackgroundResource
 import com.zll.hellokotlin.binding.bindText
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.async
+import org.jetbrains.anko.toast
+import org.jetbrains.anko.uiThread
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +36,15 @@ class MainActivity : AppCompatActivity() {
             bindBackgroundResource(viewModel.imageResource)
         }
 
+        async() {
+            Thread.sleep(5000)
+            uiThread {
+                change(viewModel)
+            }
+        }
+    }
+
+    fun change(viewModel: ViewModel) {
         //修改 viewModel 中的值
         with(viewModel) {
             text.set("changed")
