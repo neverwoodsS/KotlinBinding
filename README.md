@@ -12,7 +12,7 @@ textView.bindBackgroundResource(viewModel.backGroundResource)
 ```
 ####3.使用 with 等方法,让绑定实现的代码看上去更优雅（支持 anko 中使用）
 ```
-with(contentTv) {
+with(textView) {
     bindText(viewModel.text)
     bindBackgroundResource(viewModel.backGroundResource)
 }
