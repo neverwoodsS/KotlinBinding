@@ -16,6 +16,6 @@ fun <T: View, B: BindObservable<Int>> T.bindBackgroundResource(observable: B) {
     this.bind(observable) { backgroundResource = it }
 }
 
-fun <T: TextView, B: BindObservable<CharSequence>> T.bindText(observable: B) {
+fun <T: TextView, V: CharSequence, B: BindObservable<V>> T.bindText(observable: B) {
     this.bind(observable) { text = it }
 }
